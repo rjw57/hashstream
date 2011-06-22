@@ -24,7 +24,7 @@
 #  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Test our hash function wrappers
-include_directories("${CMAKE_SOURCE_DIR}/hashstream")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../hashstream")
 add_executable(test_hashstream test_hashstream.cpp)
 target_link_libraries(test_hashstream hashstream)
 add_test(hashstream test_hashstream)
