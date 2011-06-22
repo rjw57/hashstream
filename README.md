@@ -43,7 +43,8 @@ Full documentation
 ------------------
 
 If you have the `doxygen` program installed, API documentation can be generated
-with `make hashstream-docs`.
+with `make hashstream-docs`. If CMake found the `doxygen` program at configure
+time, the documentation is always automatically built.
 
 Embedding `hashstream`
 ----------------------
