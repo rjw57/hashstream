@@ -18,7 +18,7 @@ is:
     int main(int argc, char** argv)
     {
       hashstream::hashstream hs(hashstream::SHA1);
-      hs << "You can has strings, or numbers: " << 34 << ", or even new-lines." << std::endl;
+      hs << "You can hash strings, or numbers: " << 34 << ", or even new-lines." << std::endl;
 
       std::cout << hs; // print the hexadecimal digest.
       std::string hd(hs.hex_digest()); // or get it as a string.
