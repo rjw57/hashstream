@@ -46,5 +46,6 @@ add_library(hashstream
   sha2.c
 )
 target_link_libraries(hashstream ${Boost_LIBRARIES})
+set_target_properties(hashstream PROPERTIES COMPILE_FLAGS ${_sha2_defines})
 
 # vim:sw=2:sts=2:et
