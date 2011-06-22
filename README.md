@@ -26,6 +26,25 @@ is:
       return 0;
     }
 
+Compiling
+---------
+
+You must have the boost libraries and CMake installed to compile `hashstream`.
+Make some temporary build directory, and compile `hashstream` with the
+following commands, replacing `<build_dir>` and `<source_dir>` with your build
+directory and the directory containing this file respectively.
+
+    $ cd <build_dir>
+    $ cmake <source_dir>
+    # ... output
+    $ make all
+
+Full documentation
+------------------
+
+If you have the `doxygen` program installed, API documentation can be generated
+with `make hashstream-docs`.
+
 License
 -------
 

@@ -1,0 +1,10 @@
+/*!
+@mainpage The hashstream cryptographic hash function library.
+
+See the @ref hash "appropriate module page" for the library documentation.
+
+@defgroup hash hashstream public API
+
+*/
+
+// vim:filetype=cpp

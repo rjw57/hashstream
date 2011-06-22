@@ -23,23 +23,12 @@
 #  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 #  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# The minimum CMake version we need
-cmake_minimum_required(VERSION 2.8)
+find_package(Doxygen)
 
-# Update the module path to include any extra CMake modules we might ship.
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-
-# Information on this project
-project(hashstream C CXX)
-
-# Enable testing via CTest
-enable_testing()
-
-# The hashstrem library itself
-add_subdirectory(hashstream)
-
-# Some test/example code
-add_subdirectory(test)
-
-# The doxygen-generated documentation
-add_subdirectory(docs)
+if(DOXYGEN_FOUND)
+  # We use the targer of hashstream-docs to avoid clashing with any other
+  # documentation targets in any projects we might be embedded in.
+  set(DOC_TARGET_NAME "hashstream-docs")
+  set(DOC_INPUT "${CMAKE_CURRENT_SOURCE_DIR}/../hashstream")
+  include(UseDoxygen)
+endif(DOXYGEN_FOUND)
