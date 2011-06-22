@@ -29,8 +29,6 @@
 
 #include <cstring> // for memcpy
 
-#include <boost/filesystem/fstream.hpp>
-
 #include "hashstream.hpp"
 
 namespace hashstream
