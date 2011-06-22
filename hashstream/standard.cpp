@@ -198,7 +198,7 @@ namespace hashstream
         ///@}
     }
 
-    boost::shared_ptr<hashbuf> make_standard_hashbuf(StandardHash hf)
+    boost::shared_ptr<hashbuf> make_standard_hashbuf(standard_hash hf)
     {
         switch(hf)
         {

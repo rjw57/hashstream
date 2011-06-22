@@ -15,7 +15,7 @@ namespace hashstream
     /// @{
 
     /// @brief An enumeration of all standard hash functions supported by the hash library
-    enum StandardHash
+    enum standard_hash
     {
         MD5,            ///< The venerable MD5 (not cryptographically safe)
         SHA1,           ///< SHA-1 (not cryptographically safe)
@@ -109,7 +109,7 @@ namespace hashstream
     /// @param hf Which hash function to return.
     ///
     /// @return A boost::shared_ptr pointing to the new hashbuf.
-    boost::shared_ptr<hashbuf> make_standard_hashbuf(StandardHash hf);
+    boost::shared_ptr<hashbuf> make_standard_hashbuf(standard_hash hf);
 
     /// @brief std::ostream derived class which can compute a hash
     ///
@@ -133,7 +133,7 @@ namespace hashstream
             /// @brief Construct a hashstream from a standard hash function.
             ///
             /// @param hf Which hash function to use.
-            explicit hashstream(StandardHash hf);
+            explicit hashstream(standard_hash hf);
 
             /// @brief Construct a hashstream from a custom hash function.
             ///
@@ -172,13 +172,13 @@ namespace hashstream
     ///
     /// @param hf Which function to compute.
     /// @param is A std::ifstream to read bytes from.
-    std::string hex_digest(StandardHash hf, const std::istream& is);
+    std::string hex_digest(standard_hash hf, const std::istream& is);
 
     /// @brief Return a hex string giving the digest computed from the contents of a string.
     ///
     /// @param hf Which function to compute.
     /// @param s A reference to a string containing the data to compute a digest of.
-    std::string hex_digest(StandardHash hf, const std::string& s);
+    std::string hex_digest(standard_hash hf, const std::string& s);
 
     /// @brief Write the raw digest bytes for a hash to an output stream.
     ///

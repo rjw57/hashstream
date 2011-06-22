@@ -36,7 +36,7 @@ void report_fail(const std::string f_name,
     std::cerr << "expected " << f_name << "(\"" << input << "\") = " << expected_hex_digest << std::endl;
 }
 
-bool test_standard_hash(hashstream::StandardHash f, const std::string f_name,
+bool test_standard_hash(hashstream::standard_hash f, const std::string f_name,
                         const std::string& input, const std::string& expected_hex_digest)
 {
     bool passed(true);

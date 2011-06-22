@@ -88,7 +88,7 @@ namespace hashstream
 
     // ////// hashstream implementation //////
 
-    hashstream::hashstream(StandardHash hf)
+    hashstream::hashstream(standard_hash hf)
         : std::ostream()
         , hb_(make_standard_hashbuf(hf))
     {
@@ -130,14 +130,14 @@ namespace hashstream
 
     // ////// convenience wrappers //////
 
-    std::string hex_digest(StandardHash hf, const std::istream& is)
+    std::string hex_digest(standard_hash hf, const std::istream& is)
     {
         hashstream hs(hf);
         hs << is.rdbuf();
         return hs.hex_digest();
     }
 
-    std::string hex_digest(StandardHash hf, const std::string& s)
+    std::string hex_digest(standard_hash hf, const std::string& s)
     {
         hashstream hs(hf);
         hs << s;
