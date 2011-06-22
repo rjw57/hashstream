@@ -45,6 +45,15 @@ Full documentation
 If you have the `doxygen` program installed, API documentation can be generated
 with `make hashstream-docs`.
 
+Embedding `hashstream`
+----------------------
+
+It is envisaged that `hashstream` will be used within larger projects. To that
+end, it has been designed to be 'embedding friendly' with regards to CMake. If
+you include this directory in your existing CMake project and simply point
+CMake at it with `add_subdirectory(hashstream)`, the Right Thing Should
+Happen(TM).
+
 License
 -------
 
