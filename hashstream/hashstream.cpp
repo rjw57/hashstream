@@ -4,13 +4,13 @@
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
 //      * Redistributions of source code must retain the above copyright
-//	notice, this list of conditions and the following disclaimer.
+//      notice, this list of conditions and the following disclaimer.
 //      * Redistributions in binary form must reproduce the above copyright
-//	notice, this list of conditions and the following disclaimer in the
-//	documentation and/or other materials provided with the distribution.
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
 //      * Neither the name of the hashstream library nor the
-//	names of its contributors may be used to endorse or promote products
-//	derived from this software without specific prior written permission.
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
 //
 //  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 //  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -84,6 +84,16 @@ namespace hashstream
         digest_bytes_ = boost::shared_ptr<uint8_t>(new uint8_t[n_bytes]);
         memcpy(digest_bytes_.get(), bytes, n_bytes);
         digest_size_ = n_bytes;
+    }
+
+    int hashbuf::overflow(int c)
+    {
+        if((c >= 0) && (c <= 127))
+        {
+            char ch(c);
+            this->xsputn(&ch, 1);
+        }
+        return 0;
     }
 
     // ////// hashstream implementation //////

@@ -128,6 +128,25 @@ bool test_sha512(const std::string& input, const std::string& expected_hex_diges
     return passed;
 }
 
+bool test_endl()
+{
+    bool passed = true;
+
+    hashstream::hashstream hs(hashstream::SHA1);
+    hs << "You can hash strings, or numbers: " << 34 << ", or even new-lines." << std::endl;
+
+    std::string hd(hs.hex_digest());
+    std::string expect("fe7613e7bc321648ddbc98c61b52fc4692b5c20a");
+    if(hd != expect)
+    {
+        std::cerr << "using hashstream << std::string << int << std::string << std::endl:" << std::endl;
+        report_fail("SHA1", "<input>", expect, hd);
+        passed = false;
+    }
+
+    return passed;
+}
+
 int main(int argc, char** argv)
 {
     bool passed = true;
@@ -195,6 +214,10 @@ int main(int argc, char** argv)
     passed = passed && test_sha512("The quick brown fox jumps over the lazy dog.",
                                    "91ea1245f20d46ae9a037a989f54f1f790f0a47607eeb8a14d12890cea77a1bb"
                                    "c6c7ed9cf205e67b7f2b8fd4c7dfd3a7a8617e45f3c463d481c7e586c39ac1ed");
+
+    // ////// MISC TESTS //////
+
+    passed = passed && test_endl();
 
     return passed ? 0 : 1;
 }

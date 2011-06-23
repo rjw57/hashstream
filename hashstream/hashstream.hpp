@@ -87,6 +87,15 @@ namespace hashstream
             /// @param n_bytes The number of bytes in this digest.
             void set_digest(const uint8_t* bytes, size_t n_bytes);
 
+            /// @brief Simple implementation of overflow.
+            ///
+            /// An implementation of the standard overflow member which never returns an EOF.
+            ///
+            /// @sa The C++ standard library.
+            ///
+            /// @param c
+            virtual int overflow(int c);
+
             /// @brief Update the hash with a set of bytes.
             ///
             /// Overrides the std::streambuf::xsputn member function/
