@@ -72,6 +72,16 @@ bool test_standard_hash(hashstream::standard_hash f, const std::string f_name,
         passed = false;
     }
 
+    std::stringstream ss2(input);
+    hashstream::hashstream hs2(f);
+    ss2 >> hs2;
+    if(hs2.hex_digest() != expected_hex_digest)
+    {
+        std::cerr << "using operator >> (std::istream&, hashstream::hashstream&):" << std::endl;
+        report_fail(f_name, input, expected_hex_digest, hs2.hex_digest());
+        passed = false;
+    }
+
     // test convenience string wrapper
     if((temp_digest = hashstream::hex_digest(f, input)) != expected_hex_digest)
     {

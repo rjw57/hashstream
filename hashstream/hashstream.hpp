@@ -174,6 +174,16 @@ namespace hashstream
             boost::shared_ptr<hashbuf> hb_;     ///< The hashbuf used by this stream.
     };
 
+    /// @brief Read bytes from an input stream into a hashstream.
+    ///
+    /// Read bytes from \p is into \p hs until the EOF condition is met.
+    ///
+    /// @param is A std::ifstream to read bytes from.
+    /// @param hs A hashstream to push the bytes in.
+    ///
+    /// @return \p is
+    std::istream& operator >> (std::istream& is, hashstream& hs);
+
     /// @brief Return a hex string giving the digest computed from a std::ifstream.
     ///
     /// Read bytes from \p is until the EOF condition is met and return a character string giving the

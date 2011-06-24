@@ -140,6 +140,12 @@ namespace hashstream
 
     // ////// convenience wrappers //////
 
+    std::istream& operator >> (std::istream& is, hashstream& hs)
+    {
+        hs << is.rdbuf();
+        return is;
+    }
+
     std::string hex_digest(standard_hash hf, const std::istream& is)
     {
         hashstream hs(hf);
