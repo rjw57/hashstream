@@ -29,7 +29,7 @@ if(DOXYGEN_FOUND)
   # We use the targer of hashstream-docs to avoid clashing with any other
   # documentation targets in any projects we might be embedded in.
   set(DOC_TARGET_NAME "hashstream-docs")
-  set(DOC_ALWAYS_BUILD YES)
+  set(DOC_ALWAYS_BUILD NO)
   set(DOC_INPUT "${CMAKE_CURRENT_SOURCE_DIR}/../hashstream")
   include(UseDoxygen)
 endif(DOXYGEN_FOUND)
